@@ -15,5 +15,23 @@ module.exports = {
       path: `${__dirname}/projects`
     }
   },
+  {
+    resolve: `gatsby-omni-font-loader`,
+    options: {
+      enableListener: true,
+      preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+      web: [
+
+        {
+          name: `Cardo`,
+          file: `https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap`,
+        },
+        {
+          name: `Montserrat`,
+          file: `https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap`,
+        },
+      ],
+    },
+  },
 ]
 };
