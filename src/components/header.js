@@ -1,9 +1,18 @@
-import * as React from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import styled from 'styled-components'
 import { headerFont, textFont } from '../../styleVars/styles'
 
 const Header = ({path}) => {
+
+  const linkList = useRef(null)
+
+  const [mobile, setMobile] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('resize', () => console.log(window.innerWidth))
+  }, [])
+
   return (
     <>
     <HeaderContainer>
@@ -11,7 +20,7 @@ const Header = ({path}) => {
   <SiteTitle>{window.location.href.includes('portfolio') && 'Scott Gruber'}</SiteTitle>
   </div>
   <div>
-  <LinksList>
+  <LinksList ref={linkList}>
     <TopLink><NavLink to="/about">About Me</NavLink></TopLink>
     <TopLink><NavLink to="/portfolio">Portfolio</NavLink></TopLink>
     <TopLink><NavLink to="/resume">Resume</NavLink></TopLink>
